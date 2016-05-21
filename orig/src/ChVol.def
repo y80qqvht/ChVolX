@@ -1,0 +1,12 @@
+LIBRARY      "ChVol"
+DESCRIPTION  'ChVol Windows Dynamic Link Library'
+
+EXPORTS
+    ; 明示的なエクスポートはここへ記述できます
+	TTBEvent_InitPluginInfo = _TTBEvent_InitPluginInfo@4 
+	TTBEvent_FreePluginInfo = _TTBEvent_FreePluginInfo@4
+	TTBEvent_Init = _TTBEvent_Init@8
+	TTBEvent_Unload = _TTBEvent_Unload@0        
+	TTBEvent_Execute = _TTBEvent_Execute@8       
+	TTBEvent_WindowsHook = _TTBEvent_WindowsHook@12  
+
