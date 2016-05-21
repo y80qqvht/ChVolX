@@ -19,7 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{DEE7E45A-1A8C-492A-B7B7-E1A87640A60B}</ProjectGuid>
+    <ProjectGuid>{33CCDD86-4F73-4D32-9538-4B0EE4A85BD9}</ProjectGuid>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -136,7 +136,7 @@
       <ImportLibrary>
       </ImportLibrary>
       <AdditionalDependencies>odbc32.lib;odbccp32.lib;version.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <ModuleDefinitionFile>TTBasePlugin.def</ModuleDefinitionFile>
+      <ModuleDefinitionFile>chvol.def</ModuleDefinitionFile>
     </Link>
     <Manifest>
       <AdditionalManifestFiles>..\x86.manifest</AdditionalManifestFiles>
@@ -187,7 +187,7 @@
       <ImportLibrary>
       </ImportLibrary>
       <AdditionalDependencies>odbc32.lib;odbccp32.lib;version.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <ModuleDefinitionFile>TTBasePlugin.def</ModuleDefinitionFile>
+      <ModuleDefinitionFile>chvol.def</ModuleDefinitionFile>
     </Link>
     <Manifest>
       <AdditionalManifestFiles>..\amd64.manifest</AdditionalManifestFiles>
@@ -236,7 +236,7 @@
       <ImportLibrary>
       </ImportLibrary>
       <AdditionalDependencies>odbc32.lib;odbccp32.lib;version.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <ModuleDefinitionFile>TTBasePlugin.def</ModuleDefinitionFile>
+      <ModuleDefinitionFile>chvol.def</ModuleDefinitionFile>
       <GenerateDebugInformation>false</GenerateDebugInformation>
     </Link>
     <Manifest>
@@ -286,7 +286,7 @@
       <ImportLibrary>
       </ImportLibrary>
       <AdditionalDependencies>odbc32.lib;odbccp32.lib;version.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <ModuleDefinitionFile>TTBasePlugin.def</ModuleDefinitionFile>
+      <ModuleDefinitionFile>chvol.def</ModuleDefinitionFile>
       <GenerateDebugInformation>false</GenerateDebugInformation>
     </Link>
     <Manifest>
@@ -308,10 +308,10 @@
     <ClInclude Include="Utility.hpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="TTBasePlugin.def" />
+    <None Include="chvol.def" />
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="TTBasePlugin.rc" />
+    <ResourceCompile Include="chvol.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
