@@ -139,7 +139,8 @@
       <ModuleDefinitionFile>chvol.def</ModuleDefinitionFile>
     </Link>
     <Manifest>
-      <AdditionalManifestFiles>..\x86.manifest</AdditionalManifestFiles>
+      <AdditionalManifestFiles>
+      </AdditionalManifestFiles>
     </Manifest>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -190,7 +191,8 @@
       <ModuleDefinitionFile>chvol.def</ModuleDefinitionFile>
     </Link>
     <Manifest>
-      <AdditionalManifestFiles>..\amd64.manifest</AdditionalManifestFiles>
+      <AdditionalManifestFiles>
+      </AdditionalManifestFiles>
     </Manifest>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
