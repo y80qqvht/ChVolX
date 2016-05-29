@@ -5,6 +5,8 @@
 //---------------------------------------------------------------------------//
 
 #include <windows.h>
+#include <strsafe.h>
+#include <set>
 
 #include "Plugin.hpp"
 #include "MessageDef.hpp"
@@ -23,34 +25,20 @@ HINSTANCE g_hInst { nullptr };
 //---------------------------------------------------------------------------//
 
 // プラグインの名前
-LPCTSTR PLUGIN_NAME { TEXT("スケルトン") };
-
-// コマンドの数
-DWORD COMMAND_COUNT { 1 };
+LPCTSTR PLUGIN_NAME { TEXT("ボリュームを変更") };
 
 //---------------------------------------------------------------------------//
 
 // コマンドID
 enum CMD : INT32
 {
-    CMD_DUMMY, // ダミー コマンド
-};
-
-//---------------------------------------------------------------------------//
-
-// コマンドの情報
-PLUGIN_COMMAND_INFO g_cmd_info[] =
-{
-    {
-        TEXT("Dummy"),  // コマンド名（英名）
-        TEXT("ダミー"), // コマンド説明（日本語）
-        CMD_DUMMY,      // コマンドID
-        0,              // Attr（未使用）
-        -1,             // ResTd(未使用）
-        dmHotKeyMenu,   // DispMenu
-        0,              // TimerInterval[msec] 0で使用しない
-        0               // TimerCounter（未使用）
-    },
+    CMD_MUTE                = 1,
+    CMD_VOLUME_UP_FIRST     = 1000,
+    CMD_VOLUME_UP_LAST      = 1100,
+    CMD_VOLUME_DOWN_FIRST   = 2000,
+    CMD_VOLUME_DOWN_LAST    = 2100,
+    CMD_VOLUME_SET_FIRST    = 3000,
+    CMD_VOLUME_SET_LAST     = 3100
 };
 
 //---------------------------------------------------------------------------//
@@ -64,16 +52,45 @@ PLUGIN_INFO g_info =
     ptLoadAtUse,         // プラグインのタイプ
     0,                   // バージョン
     0,                   // バージョン
-    COMMAND_COUNT,       // コマンド個数
-    &g_cmd_info[0],      // コマンド
+    0,                   // コマンド個数（InitPluginInfo で動的に更新する）
+    nullptr,             // コマンド（InitPluginInfo で動的に更新する）
     0,                   // ロードにかかった時間（msec）
 };
 
 //---------------------------------------------------------------------------//
 
-// TTBEvent_Init() の内部実装
-BOOL WINAPI Init(void)
+constexpr INT32 CMD_MAX { 10 };
+constexpr UINT32 VOL_MAX { 100 };
+
+LPCTSTR SECTION_COMMAND { TEXT("Command") };
+
+void SetCommandData(PLUGIN_COMMAND_INFO *cmdInfo, LPCTSTR Name, LPCTSTR Caption, INT32 CommandID)
 {
+    cmdInfo->Name = CopyString(Name);
+    cmdInfo->Caption = CopyString(Caption);
+    cmdInfo->CommandID = CommandID;
+    cmdInfo->Attr = 0;
+    cmdInfo->ResID = -1;
+    cmdInfo->DispMenu = dmHotKeyMenu;
+    cmdInfo->TimerInterval = 0;
+    cmdInfo->TimerCounter = 0;
+}
+
+void UnetCommandData(PLUGIN_COMMAND_INFO *cmdInfo)
+{
+    DeleteString(cmdInfo->Name);
+    cmdInfo->Name = nullptr;
+    DeleteString(cmdInfo->Caption);
+    cmdInfo->Caption = nullptr;
+}
+
+//---------------------------------------------------------------------------//
+
+// TTBEvent_InitPluginInfo() の内部実装
+void WINAPI InitPluginInfo(void)
+{
+    if ( g_info.CommandCount != 0 ) { return; }
+
     TCHAR ininame[MAX_PATH];
 
     // iniファイル名取得
@@ -82,10 +99,94 @@ BOOL WINAPI Init(void)
     ininame[len - 2] = 'n';
     ininame[len - 1] = 'i';
 
-    // パラメータ取得の例
-    auto param = ::GetPrivateProfileInt(TEXT("Setting"), TEXT("Param"), 0, ininame);
-    UNREFERENCED_PARAMETER(param); // ERASE ME
+    //ボリュームアップ＆ダウン
+    std::set<UINT> vol;
+    for ( auto i = 0; i < CMD_MAX; i++ )
+    {
+        TCHAR key[8];
+        if ( SUCCEEDED(::StringCchPrintf(key, 8, TEXT("UpDown%d"), i)) )
+        {
+            auto param = ::GetPrivateProfileInt(SECTION_COMMAND, key, 0, ininame);
+            if ( 0 < param && param <= VOL_MAX )
+            {
+                vol.insert(param);
+            }
+        }
+    }
 
+    //セット
+    std::set<UINT> set;
+    for ( auto i = 0; i < CMD_MAX; i++ )
+    {
+        TCHAR key[8];
+        if ( SUCCEEDED(::StringCchPrintf(key, 8, TEXT("Set%d"), i)) )
+        {
+            auto param = ::GetPrivateProfileInt(SECTION_COMMAND, key, 0, ininame);
+            if ( 0 <= param && param <= VOL_MAX )
+            {
+                set.insert(param);
+            }
+        }
+    }
+
+    /* メモリ確保 */
+    const auto count = 1 + vol.size() * 2 + set.size();
+    auto pCI = new PLUGIN_COMMAND_INFO[count];
+    g_info.CommandCount = static_cast<DWORD>(count);
+    g_info.Commands = pCI;
+
+    /* コマンド作成 */
+    //ミュート
+    SetCommandData(pCI++, TEXT("Mute"), TEXT("ミュート"), CMD_MUTE);
+
+    //ボリュームアップ＆ダウン
+    for ( auto i : vol )
+    {
+        TCHAR Name[32], Caption[32];
+        if ( SUCCEEDED(::StringCchPrintf(Name, 32, TEXT("VolumeUp(%d)"), i)) &&
+            SUCCEEDED(::StringCchPrintf(Caption, 32, TEXT("ボリュームを%d上げる"), i)) )
+        {
+            SetCommandData(pCI++, Name, Caption, CMD_VOLUME_UP_FIRST + i);
+        }
+        if ( SUCCEEDED(::StringCchPrintf(Name, 32, TEXT("VolumeDown(%d)"), i)) &&
+            SUCCEEDED(::StringCchPrintf(Caption, 32, TEXT("ボリュームを%d下げる"), i)) )
+        {
+            SetCommandData(pCI++, Name, Caption, CMD_VOLUME_DOWN_FIRST + i);
+        }
+    }
+
+    //セット
+    for ( auto i : set )
+    {
+        TCHAR Name[32], Caption[32];
+        if ( SUCCEEDED(::StringCchPrintf(Name, 32, TEXT("Set(%d)"), i)) &&
+            SUCCEEDED(::StringCchPrintf(Caption, 32, TEXT("ボリュームを%dにセット"), i)) )
+        {
+            SetCommandData(pCI++, Name, Caption, CMD_VOLUME_SET_FIRST + i);
+        }
+    }
+}
+
+// TTBEvent_InitPluginInfo() の内部実装
+void WINAPI FreePluginInfo(void)
+{
+    if ( g_info.CommandCount == 0 ) { return; }
+
+    const auto count = static_cast<INT32>(g_info.CommandCount);
+    auto pCI = g_info.Commands;
+    for ( auto i = 0; i < count; i++ )
+    {
+        UnetCommandData(pCI++);
+    }
+    delete[] g_info.Commands;
+
+    g_info.CommandCount = 0;
+    g_info.Commands = nullptr;
+}
+
+// TTBEvent_Init() の内部実装
+BOOL WINAPI Init(void)
+{
     return TRUE;
 }
 
@@ -102,8 +203,10 @@ void WINAPI Unload(void)
 BOOL WINAPI Execute(INT32 CmdId, HWND hWnd)
 {
     UNREFERENCED_PARAMETER(hWnd); // ERASE ME
+    UNREFERENCED_PARAMETER(CmdId); // ERASE ME
+    return TRUE;
 
-    switch ( CmdId )
+    /*switch ( CmdId )
     {
         case CMD_DUMMY:
         {
@@ -114,7 +217,7 @@ BOOL WINAPI Execute(INT32 CmdId, HWND hWnd)
         {
             return FALSE;
         }
-    }
+    }*/
 }
 
 //---------------------------------------------------------------------------//

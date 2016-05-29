@@ -56,6 +56,8 @@ PLUGIN_INFO* WINAPI TTBEvent_InitPluginInfo(LPTSTR PluginFilename)
     g_info.Filename = CopyString(PluginFilename);
     GetVersion(PluginFilename, &g_info.VersionMS, &g_info.VersionLS);
 
+    InitPluginInfo();
+
     return &g_info;
 }
 
@@ -65,6 +67,8 @@ PLUGIN_INFO* WINAPI TTBEvent_InitPluginInfo(LPTSTR PluginFilename)
 void WINAPI TTBEvent_FreePluginInfo(PLUGIN_INFO* PluginInfo)
 {
     if ( PluginInfo != &g_info ) { return; }
+
+    FreePluginInfo();
 
     DeleteString(g_info.Filename);
     g_info.Filename = nullptr;

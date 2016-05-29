@@ -228,9 +228,6 @@ extern LPCTSTR PLUGIN_NAME;
 // コマンドの数
 extern DWORD COMMAND_COUNT;
 
-// コマンドの情報
-extern PLUGIN_COMMAND_INFO g_cmd_info[];
-
 // プラグインの情報
 extern PLUGIN_INFO g_info;
 
@@ -243,6 +240,8 @@ extern DWORD_PTR g_hPlugin;
 //
 //---------------------------------------------------------------------------//
 
+void WINAPI InitPluginInfo();
+void WINAPI FreePluginInfo();
 BOOL WINAPI Init   ();
 void WINAPI Unload ();
 BOOL WINAPI Execute(INT32 CmdID, HWND hwnd);
