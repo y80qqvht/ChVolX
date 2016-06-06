@@ -297,12 +297,14 @@
     </Manifest>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AudioEndpointVolume.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MessageDef.cpp" />
     <ClCompile Include="Plugin.cpp" />
     <ClCompile Include="Utility.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AudioEndpointVolume.hpp" />
     <ClInclude Include="Main.hpp" />
     <ClInclude Include="MessageDef.hpp" />
     <ClInclude Include="Plugin.hpp" />
