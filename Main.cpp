@@ -76,7 +76,7 @@ void SetCommandData(PLUGIN_COMMAND_INFO *cmdInfo, LPCTSTR Name, LPCTSTR Caption,
     cmdInfo->TimerCounter = 0;
 }
 
-void UnetCommandData(PLUGIN_COMMAND_INFO *cmdInfo)
+void UnsetCommandData(PLUGIN_COMMAND_INFO *cmdInfo)
 {
     DeleteString(cmdInfo->Name);
     cmdInfo->Name = nullptr;
@@ -176,7 +176,7 @@ void WINAPI FreePluginInfo(void)
     auto pCI = g_info.Commands;
     for ( auto i = 0; i < count; i++ )
     {
-        UnetCommandData(pCI++);
+        UnsetCommandData(pCI++);
     }
     delete[] g_info.Commands;
 
