@@ -36,9 +36,11 @@ namespace ChVol
         // 再度Activateメソッドを呼び出すことで、使用可能に戻すこともできる。
         VOID Deactivate();
 
-        // 音量操作をハードウェアでサポートする場合はTRUEを返す。
+        // 音量操作をハードウェアでサポートするかどうかを取得する。
         // Activateメソッドが実行済みである必要がある。
-        // FALSEが返されるデバイスの場合、排他モード使用中に音量の変更ができない。
+        // COMコンポーネントの使用結果をHRESULTで返す。
+        // lpbSupportedの示す値がFALSEとなるデバイスの場合、
+        // 排他モード使用中に音量の変更ができない。
         HRESULT IsHardwareSupported(LPBOOL lpbSupported);
 
         // ミュートのON/OFFを切り替える。
@@ -46,9 +48,14 @@ namespace ChVol
         // COMコンポーネントの使用結果をHRESULTで返す。
         HRESULT ToggleMute();
 
+        // 音量の現在値（0.0以上1.0以下）を取得する。
+        // Activateメソッドが実行済みである必要がある。
+        // COMコンポーネントの使用結果をHRESULTで返す。
+        HRESULT GetMasterVolumeLevel(float *pfLevel);
+
         // 音量を指定された値（0.0以上1.0以下）へ設定する。
         // Activateメソッドが実行済みである必要がある。
         // COMコンポーネントの使用結果をHRESULTで返す。
-        HRESULT SetVolumeLevel(float fLevel);
+        HRESULT SetMasterVolumeLevel(float fLevel);
     };
 }

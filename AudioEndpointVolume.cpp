@@ -66,7 +66,12 @@ namespace ChVol
         return hr;
     }
 
-    HRESULT AudioEndpointVolume::SetVolumeLevel(float fLevel)
+    HRESULT AudioEndpointVolume::GetMasterVolumeLevel(float *pfLevel)
+    {
+        return audioEndpointVolume->GetMasterVolumeLevelScalar(pfLevel);
+    }
+
+    HRESULT AudioEndpointVolume::SetMasterVolumeLevel(float fLevel)
     {
         return audioEndpointVolume->SetMasterVolumeLevelScalar(fLevel, nullptr);
     }
