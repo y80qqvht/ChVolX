@@ -52,12 +52,12 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="ChVol.def">
+    <None Include="ChVolX.def">
       <Filter>Resource Files</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="ChVol.rc">
+    <ResourceCompile Include="ChVolX.rc">
       <Filter>Resource Files</Filter>
     </ResourceCompile>
   </ItemGroup>

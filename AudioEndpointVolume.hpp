@@ -4,7 +4,7 @@
 #include <wrl.h>
 #include <endpointvolume.h>
 
-namespace ChVol
+namespace ChVolX
 {
     // スピーカー・マイク等の音声デバイスの音量を操作するクラス
     class AudioEndpointVolume

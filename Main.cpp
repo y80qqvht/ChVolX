@@ -191,7 +191,7 @@ void WINAPI FreePluginInfo(void)
 
 //---------------------------------------------------------------------------//
 
-ChVol::AudioEndpointVolume audioEndpointVolume;
+ChVolX::AudioEndpointVolume audioEndpointVolume;
 
 HRESULT SetMasterVolumeLevel(INT32 nLevel)
 {

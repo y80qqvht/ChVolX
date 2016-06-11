@@ -5,7 +5,7 @@
 
 #include "AudioEndpointVolume.hpp"
 
-namespace ChVol
+namespace ChVolX
 {
     AudioEndpointVolume::AudioEndpointVolume()
     {

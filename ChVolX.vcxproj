@@ -136,7 +136,7 @@
       <ImportLibrary>
       </ImportLibrary>
       <AdditionalDependencies>odbc32.lib;odbccp32.lib;version.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <ModuleDefinitionFile>ChVol.def</ModuleDefinitionFile>
+      <ModuleDefinitionFile>ChVolX.def</ModuleDefinitionFile>
     </Link>
     <Manifest>
       <AdditionalManifestFiles>
@@ -188,7 +188,7 @@
       <ImportLibrary>
       </ImportLibrary>
       <AdditionalDependencies>odbc32.lib;odbccp32.lib;version.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <ModuleDefinitionFile>ChVol.def</ModuleDefinitionFile>
+      <ModuleDefinitionFile>ChVolX.def</ModuleDefinitionFile>
     </Link>
     <Manifest>
       <AdditionalManifestFiles>
@@ -238,7 +238,7 @@
       <ImportLibrary>
       </ImportLibrary>
       <AdditionalDependencies>odbc32.lib;odbccp32.lib;version.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <ModuleDefinitionFile>ChVol.def</ModuleDefinitionFile>
+      <ModuleDefinitionFile>ChVolX.def</ModuleDefinitionFile>
       <GenerateDebugInformation>false</GenerateDebugInformation>
     </Link>
     <Manifest>
@@ -288,7 +288,7 @@
       <ImportLibrary>
       </ImportLibrary>
       <AdditionalDependencies>odbc32.lib;odbccp32.lib;version.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <ModuleDefinitionFile>ChVol.def</ModuleDefinitionFile>
+      <ModuleDefinitionFile>ChVolX.def</ModuleDefinitionFile>
       <GenerateDebugInformation>false</GenerateDebugInformation>
     </Link>
     <Manifest>
@@ -312,10 +312,10 @@
     <ClInclude Include="Utility.hpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="ChVol.def" />
+    <None Include="ChVolX.def" />
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="ChVol.rc" />
+    <ResourceCompile Include="ChVolX.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
