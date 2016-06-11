@@ -1,128 +1,91 @@
-= ƒ{ƒŠƒ…[ƒ€‚ð•ÏX Ver.1.12
-== ‚Ç‚ñ‚È‚ÌH
-ƒ{ƒŠƒ…[ƒ€‚ð•ÏXAƒ~ƒ…[ƒg‚ÌON/OFF‚ðs‚¤A
-((<TTBase|URL:http://web.kyoto-inet.or.jp/people/koyabu/TTBase.html>))—pPlugin‚Å‚·B
+ãƒœãƒªãƒ¥ãƒ¼ãƒ ã‚’å¤‰æ›´ (Vistaå¯¾å¿œç‰ˆ) v1.0.0
+================================================================================
 
-== Š„‚è“–‚Ä‰Â”\‚ÈƒRƒ}ƒ“ƒhˆê——B
-: uƒ~ƒ…[ƒgv
-ŽÀs‚·‚é‚½‚Ñ‚ÉAƒ~ƒ…[ƒg‚ÌON/OFF‚ðs‚¢‚Ü‚·B
+ãƒœãƒªãƒ¥ãƒ¼ãƒ ã‚’å¤‰æ›´ã€ãƒŸãƒ¥ãƒ¼ãƒˆã®ON/OFFã‚’è¡Œã†ã€TTBaseç”¨Plugin
+ã€Œãƒœãƒªãƒ¥ãƒ¼ãƒ ã‚’å¤‰æ›´ã€ <http://www.momo-lab.net/inu/chvol.html>
+ã®Vistaå¯¾å¿œç‰ˆã§ã™ã€‚
 
-: u‰¹—Ê‚ðnã‚°‚évu‰¹—Ê‚ðn‰º‚°‚év
-‰¹—Ê‚ðnƒp[ƒZƒ“ƒg•ªã‰º‚³‚¹‚Ü‚·B
+æ©Ÿèƒ½çš„ã«ã¯ã»ã¼åŒã˜ã§ã™ãŒã€Vistaä»¥é™ã§å‹•ä½œã™ã‚‹ã‚ˆã†1ã‹ã‚‰ä½œã‚Šç›´ã—ã¾ã—ãŸã€‚
 
-: u‰¹—Ê‚ðn‚ÉƒZƒbƒgv
-‰¹—Ê‚ðnƒp[ƒZƒ“ƒg‚ÉÝ’è‚µ‚Ü‚·B
+ã€å‰²ã‚Šå½“ã¦å¯èƒ½ãªã‚³ãƒžãƒ³ãƒ‰ä¸€è¦§ã€‘
+: ã€ŒãƒŸãƒ¥ãƒ¼ãƒˆã€
+å®Ÿè¡Œã™ã‚‹ãŸã³ã«ã€ãƒŸãƒ¥ãƒ¼ãƒˆã®ON/OFFã‚’è¡Œã„ã¾ã™ã€‚
 
-== Ý’èB
-iniƒtƒ@ƒCƒ‹‚ðŽg—p‚·‚é‚±‚Æ‚ÅAÝ’è‚ð•ÏX‚·‚é‚±‚Æ‚ªo—ˆ‚Ü‚·B
-Ý’è‰Â”\‚È“à—e‚Í‰º‹L‚Ì’Ê‚è‚Å‚·B
-®AƒRƒ}ƒ“ƒh‚ð“®“I‚Éì¬‚µ‚Ä‚¢‚éŠÖŒW‚©AÝ’è‚ð•ÏX‚µ‚½‚çTTBase‚ðÄ‹N“®‚·‚é•K—v‚ª‚ ‚é‚æ‚¤‚Å‚·B
+: ã€ŒéŸ³é‡ã‚’nä¸Šã’ã‚‹ã€ã€ŒéŸ³é‡ã‚’nä¸‹ã’ã‚‹ã€
+éŸ³é‡ã‚’nãƒ‘ãƒ¼ã‚»ãƒ³ãƒˆåˆ†ä¸Šä¸‹ã•ã›ã¾ã™ã€‚
 
-=== CommandƒZƒNƒVƒ‡ƒ“
-: UpDown0`9
-u‰¹—Ê‚ðnã‚°‚évu‰¹—Ê‚ðn‰º‚°‚év‚Åã‰º‚³‚¹‚éƒp[ƒZƒ“ƒg”‚ðŽw’è‚µ‚Ü‚·B
-0`9‚Ì‚»‚ê‚¼‚ê‚É•Ê‚Ìƒp[ƒZƒ“ƒg‚ðŽw’è‚·‚é‚±‚Æ‚ÅAÅ‘å10Ží—Þ‚ÌƒRƒ}ƒ“ƒh‚ðì¬‚Å‚«‚Ü‚·B
+: ã€ŒéŸ³é‡ã‚’nã«ã‚»ãƒƒãƒˆã€
+éŸ³é‡ã‚’nãƒ‘ãƒ¼ã‚»ãƒ³ãƒˆã«è¨­å®šã—ã¾ã™ã€‚
 
-: Set0`9
-u‰¹—Ê‚ðn‚ÉƒZƒbƒgv‚ÅÝ’è‚·‚éƒp[ƒZƒ“ƒg‚ðŽw’è‚µ‚Ü‚·B
-0`9‚Ì‚»‚ê‚¼‚ê‚É•Ê‚Ìƒp[ƒZƒ“ƒg‚ðŽw’è‚·‚é‚±‚Æ‚ÅAÅ‘å10Ží—Þ‚ÌƒRƒ}ƒ“ƒh‚ðì¬‚Å‚«‚Ü‚·B
+ã€è¨­å®šã€‘
+ã‚ªãƒªã‚¸ãƒŠãƒ«ã®ã€Œãƒœãƒªãƒ¥ãƒ¼ãƒ ã‚’å¤‰æ›´ã€ãƒ—ãƒ©ã‚°ã‚¤ãƒ³ã®iniãƒ•ã‚¡ã‚¤ãƒ«ã€
+ã¾ãŸã¯ã€åŒæ¢±ã® ChVolX.ini.sample ã‚’ä½¿ç”¨ã§ãã¾ã™ã€‚
+ãƒ•ã‚¡ã‚¤ãƒ«åã¯ ChVolX.ini ã¨ã—ã¦ãã ã•ã„ã€‚
 
-=== SettingƒZƒNƒVƒ‡ƒ“
+iniãƒ•ã‚¡ã‚¤ãƒ«ã‚’ä½¿ç”¨ã™ã‚‹ã“ã¨ã§ã€è¨­å®šã‚’å¤‰æ›´ã™ã‚‹ã“ã¨ãŒå‡ºæ¥ã¾ã™ã€‚
+è¨­å®šå¯èƒ½ãªå†…å®¹ã¯ä¸‹è¨˜ã®é€šã‚Šã§ã™ã€‚
+å°šã€ã‚³ãƒžãƒ³ãƒ‰ã‚’å‹•çš„ã«ä½œæˆã—ã¦ã„ã‚‹é–¢ä¿‚ã‹ã€
+è¨­å®šã‚’å¤‰æ›´ã—ãŸã‚‰TTBaseäº’æ›ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã‚’å†èµ·å‹•ã™ã‚‹å¿…è¦ãŒã‚ã‚‹ã‚ˆã†ã§ã™ã€‚
+
+Commandã‚»ã‚¯ã‚·ãƒ§ãƒ³
+: UpDown0ï½ž9
+ã€ŒéŸ³é‡ã‚’nä¸Šã’ã‚‹ã€ã€ŒéŸ³é‡ã‚’nä¸‹ã’ã‚‹ã€ã§ä¸Šä¸‹ã•ã›ã‚‹ãƒ‘ãƒ¼ã‚»ãƒ³ãƒˆæ•°ã‚’æŒ‡å®šã—ã¾ã™ã€‚
+0ï½ž9ã®ãã‚Œãžã‚Œã«åˆ¥ã®ãƒ‘ãƒ¼ã‚»ãƒ³ãƒˆã‚’æŒ‡å®šã™ã‚‹ã“ã¨ã§ã€æœ€å¤§10ç¨®é¡žã®ã‚³ãƒžãƒ³ãƒ‰ã‚’ä½œæˆã§ãã¾ã™ã€‚
+
+: Set0ï½ž9
+ã€ŒéŸ³é‡ã‚’nã«ã‚»ãƒƒãƒˆã€ã§è¨­å®šã™ã‚‹ãƒ‘ãƒ¼ã‚»ãƒ³ãƒˆã‚’æŒ‡å®šã—ã¾ã™ã€‚
+0ï½ž9ã®ãã‚Œãžã‚Œã«åˆ¥ã®ãƒ‘ãƒ¼ã‚»ãƒ³ãƒˆã‚’æŒ‡å®šã™ã‚‹ã“ã¨ã§ã€æœ€å¤§10ç¨®é¡žã®ã‚³ãƒžãƒ³ãƒ‰ã‚’ä½œæˆã§ãã¾ã™ã€‚
+
+Settingã‚»ã‚¯ã‚·ãƒ§ãƒ³
 : VolComponentType
-ƒ{ƒŠƒ…[ƒ€’²ßƒfƒoƒCƒX‚ÌÝ’è‚ð‚µ‚Ü‚·B
-Ý’è‚Å‚«‚é“à—e‚Í((<TClock2ch‚Ìƒwƒ‹ƒv|URL:http://homepage3.nifty.com/TClock2ch/help2ch/option.html>))‚É‚æ‚é‚Æ
+æœ¬ãƒ—ãƒ©ã‚°ã‚¤ãƒ³ (Vistaå¯¾å¿œç‰ˆ) ã§ã¯ä½¿ç”¨ã—ã¾ã›ã‚“ã€‚
 
-  MIXERLINE_COMPONENTTYPE_DST_UNDEFINED    0
-  MIXERLINE_COMPONENTTYPE_DST_DIGITAL      1
-  MIXERLINE_COMPONENTTYPE_DST_LINE         2
-  MIXERLINE_COMPONENTTYPE_DST_MONITOR      3
-  MIXERLINE_COMPONENTTYPE_DST_SPEAKERS     4  //ƒƒCƒ“ƒ{ƒŠƒ…[ƒ€
-  MIXERLINE_COMPONENTTYPE_DST_HEADPHONES   5
-  MIXERLINE_COMPONENTTYPE_DST_TELEPHONE    6
-  MIXERLINE_COMPONENTTYPE_DST_WAVEIN       7
-  MIXERLINE_COMPONENTTYPE_DST_VOICEIN      8
-  MIXERLINE_COMPONENTTYPE_SRC_UNDEFINED    9
-  MIXERLINE_COMPONENTTYPE_SRC_DIGITAL     10
-  MIXERLINE_COMPONENTTYPE_SRC_LINE        11
-  MIXERLINE_COMPONENTTYPE_SRC_MICROPHONE  12
-  MIXERLINE_COMPONENTTYPE_SRC_SYNTHESIZER 13
-  MIXERLINE_COMPONENTTYPE_SRC_COMPACTDISC 14
-  MIXERLINE_COMPONENTTYPE_SRC_TELEPHONE   15
-  MIXERLINE_COMPONENTTYPE_SRC_PCSPEAKER   16
-  MIXERLINE_COMPONENTTYPE_SRC_WAVEOUT     17  //WAVE‰¹—Ê‚ç‚µ‚¢
-  MIXERLINE_COMPONENTTYPE_SRC_AUXILIARY   18
-  MIXERLINE_COMPONENTTYPE_SRC_ANALOG      19
+ã€å‹•ä½œç’°å¢ƒã€‘
+æœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã¯TTBaseç”¨Pluginã§ã™ã€‚
+TTBaseäº’æ›ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ãŒç„¡ã„ã¨å‹•ã‹ã›ã¾ã›ã‚“ã€‚
+hako <https://tapetums.github.io/TTBase.html>
+ãªã©ã‚’åˆ¥é€”å…¥æ‰‹ã—ã¦ãã ã•ã„ã€‚
 
-‚Æ‚¢‚¤‚±‚Æ‚ç‚µ‚¢‚Å‚·BŽ„‚Í‚æ‚­‚í‚©‚Á‚Ä‚Ü‚¹‚ñ(T-T)
-ƒfƒtƒHƒ‹ƒg‚Å‚Í4‚ªÝ’è‚³‚ê‚Ü‚·B
+æœ¬ãƒ—ãƒ©ã‚°ã‚¤ãƒ³ã¯ã€
+Windows 10 Pro (64bit) + hako v0.7.2.0 (64bit)
+ã®ç’°å¢ƒã§å‹•ä½œç¢ºèªæ¸ˆã¿ã§ã™ã€‚
 
-== “®ìŠÂ‹«B
-ƒ{ƒŠƒ…[ƒ€‚ð•ÏXA‚ÍTTBase—pPlugin‚Å‚·B
-TTBase‚ª–³‚¢‚Æ“®‚©‚¹‚Ü‚¹‚ñB
-((<K2 Software's page|URL:http://web.kyoto-inet.or.jp/people/koyabu/>))‚æ‚è•Ê“r“üŽè‚µ‚Ä‚­‚¾‚³‚¢B
+Windows Vistaä»¥é™ã§ã‚ã‚Œã°å‹•ãã¯ãšã§ã™ã€‚
+hakoä»¥å¤–ã®TTBaseäº’æ›ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã§ã‚‚å‹•ãã¯ãšã§ã™ã€‚
 
-== ƒCƒ“ƒXƒg[ƒ‹B
-‰ð“€‚µ‚ÄATTBase‚ª‘¶Ý‚·‚éƒtƒHƒ‹ƒ_ˆÈ‰º‚É’u‚¢‚Ä‚­‚¾‚³‚¢B
-‚»‚ÌŒãTTBase‚ðÄ‹N“®‚·‚ê‚ÎAŠ®—¹‚Å‚·B
-‚Ü‚½AÄ‹N“®‚µ‚È‚¢‚Å‚àuTTBase‚ÌÝ’èvƒ_ƒCƒAƒƒO‚ðo‚µ‚½ŒãuOKv‚ð‰Ÿ‚µ‚Ä‚àAƒvƒ‰ƒOƒCƒ“‚ðÄƒ[ƒh‚µ‚Ä‚­‚ê‚é‚æ‚¤‚Å‚·B
+ã€ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«ã€‘
+è§£å‡ã—ã¦ã€TTBaseäº’æ›ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ãŒå­˜åœ¨ã™ã‚‹ãƒ•ã‚©ãƒ«ãƒ€ä»¥ä¸‹ã«ç½®ã„ã¦ãã ã•ã„ã€‚
+ãã®å¾ŒTTBaseäº’æ›ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã‚’å†èµ·å‹•ã™ã‚Œã°ã€å®Œäº†ã§ã™ã€‚
+è©³ã—ã„æ“ä½œæ–¹æ³•ã¯ã€TTBaseäº’æ›ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã®ãƒ˜ãƒ«ãƒ—ç­‰ã‚’å‚ç…§ã—ã¦ãã ã•ã„ã€‚
 
-== ƒAƒ“ƒCƒ“ƒXƒg[ƒ‹B
-‰ð“€‚µ‚½ƒtƒ@ƒCƒ‹‘S‚Ä‚ðÁ‚µ‚Ä‚­‚ê‚ê‚Î‚¨‚Á‚¯‚¥B
+ã€ã‚¢ãƒ³ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«ã€‘
+è§£å‡ã—ãŸãƒ•ã‚¡ã‚¤ãƒ«å…¨ã¦ã‚’æ¶ˆã—ã¦ãã‚Œã‚Œã°ãŠã£ã‘ã‡ã€‚
 
-== ’˜ìŒ ‚â‚ç–ÆÓŽ–€‚â‚çB
-–{”z•z•¨(Exe‚â‚çƒ\[ƒX‚â‚ç‚Ë)‚ÍŽ„‚±‚Æ‚à‚à‚½‚ë‚ªì¬‚µ‚Ü‚µ‚½B
-‚Ì‚ÅAˆê‰žA’˜ìŒ ‚ÍŽ„‚ªŽ‚Á‚Ä‚é‚±‚Æ‚É‚È‚è‚Ü‚·B
-‚ªA‚ ‚ñ‚Ü‚è‚¤‚é‚³‚¢‚±‚Æ‚ÍŒ¾‚¢‚Ü‚¹‚ñ‚Á‚Ä‚ä[‚©Œ¾‚¢‚½‚­‚ ‚è‚Ü‚¹‚ñ‚Ì‚ÅA
-¤—pE”ñ¤—p‚©‚©‚í‚ç‚¸Ž©—R‚É—˜—p‚µ‚Ä‚µ‚Ü‚Á‚Ä‚­‚¾‚³‚¢B
+ã€ãƒ©ã‚¤ã‚»ãƒ³ã‚¹ã€‘
+NYSL Version 0.9982 ã§ã™ã€‚ç…®ã‚‹ãªã‚Šç„¼ããªã‚Šå¥½ãã«ã—ã¦ãã ã•ã„ã€‚
 
-ƒ\[ƒX‚ª”z•z‚³‚ê‚Ä‚¢‚éê‡A‚»‚Ìƒ\[ƒX‚ð—˜—p‚µ‚Äì¬‚³‚ê‚½ƒoƒCƒiƒŠ‹y‚Ñƒ\[ƒX‚ð”z•z‚·‚éÛ‚ÉA
-Ž„‚É’f‚è‚ð“ü‚ê‚é•K—v‚Í‚ ‚è‚Ü‚¹‚ñ‚µA‚»‚Ì‚±‚Æ‚ð–¾‹L‚·‚é•K—v‚à‚ ‚è‚Ü‚¹‚ñB
-EEE‚Æ‚Í‚¢‚¦AˆêŒ¾‹³‚¦‚Ä‚­‚ê‚½‚è‚·‚é‚ÆŽ„‚ª¬–ô‚è‚µ‚ÄŠì‚Ñ‚Ü‚·‚µA
-‚Ü‚Á‚½‚­“¯‚¶‚à‚Ì‚ð’˜ìŒ •\Ž¦‚¾‚¯•Ï‚¦‚ÄŒöŠJ‚³‚ê‚½‚è‚·‚é‚Æ•s–ù‰õ‚È‹C•ª‚É‚È‚è‚Ü‚·B
-‚Ü‚ŸA‚»‚±‚ç‚Ö‚ñ‚Í—˜—pŽÒ‚Ì—ÇS‚É‚¨”C‚¹‚µ‚Ü‚·B
+ã€ã‚¹ãƒšã‚·ãƒ£ãƒ«ã‚µãƒ³ã‚¯ã‚¹ï¼ˆæ•¬ç§°ç•¥ï¼‰ã€‘
+* K2 <http://k2top.jpn.org/>
+ã•ã¾ã–ã¾ãªå¯èƒ½æ€§ã‚’ç§˜ã‚ãŸã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢TTBaseã®ç”Ÿã¿ã®è¦ªã€‚
 
-‚ A‚»‚¤‚»B‚±‚ê‚ð‘‚¢‚Æ‚©‚È‚¢‚ÆB
-–{”z•z•¨‚ð—˜—p‚·‚éˆ×‚Ì‘Î‰¿‚ÍˆêØ’¸‚«‚Ü‚¹‚ñ‚ªA
-‚»‚Ì‚©‚í‚èA—˜—p‚µ‚½‚±‚Æ‚É‚æ‚Á‚Ä‹N‚±‚Á‚½”@‰½‚È‚é–â‘è‚ÉŠÖ‚µ‚Ä
-‚à‚à‚½‚ë‚ÍˆêØ‚»‚ÌÓ”C‚ð•‰‚¢‚Ü‚¹‚ñB‚Á‚Ä‚ä[‚©•‰‚¦‚Ü‚¹‚ñB
+* ã‚‚ã‚‚ãŸã‚ <http://www.momo-lab.net/>
+æœ¬ãƒ—ãƒ©ã‚°ã‚¤ãƒ³ã®å¤§å…ƒã€Œãƒœãƒªãƒ¥ãƒ¼ãƒ ã‚’å¤‰æ›´ã€ãƒ—ãƒ©ã‚°ã‚¤ãƒ³ã®é–‹ç™ºè€…ã€‚
+æœ¬ãƒ—ãƒ©ã‚°ã‚¤ãƒ³ã¯ã€ã»ã¼1ã‹ã‚‰ä½œã‚Šç›´ã—ã¦ã„ã¾ã™ãŒã€
+ã€Œãƒœãƒªãƒ¥ãƒ¼ãƒ ã‚’å¤‰æ›´ã€ãƒ—ãƒ©ã‚°ã‚¤ãƒ³ã®ã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ã‚‚å¤§ã„ã«å‚è€ƒã«ã—ã¦ã„ã¾ã™ã€‚
+ã¾ãŸã€ã“ã®READMEãƒ•ã‚¡ã‚¤ãƒ«ã§ã‚‚ã€æ–‡ç« ã®å¤šãã‚’æµç”¨ã•ã›ã¦ã‚‚ã‚‰ã„ã¾ã—ãŸã€‚
 
-‚Ü‚ŸAŠÈ’P‚ÉŒ¾‚¤‚Æ
-uƒ^ƒ_‚Å”z•z‚·‚é‚ñ‚ÅAŸŽè‚ÉŽg‚Á‚Ä‚¿‚å[‚¾‚¢‚ÈB‚»‚Ì‘ã‚í‚è‰½‚ª‚ ‚Á‚Ä‚à’m‚ç‚È‚¢‚æv
-‚Á‚Ä‚±‚Æ‚Å‚·B
+* tapetums <https://github.com/tapetums>
+TTBaseäº’æ›ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã€Œhakoã€ã®é–‹ç™ºè€…ã€‚
+64bitç‰ˆã®æœ¬ä½“ã§32bitç‰ˆã®æ—§ãƒ—ãƒ©ã‚°ã‚¤ãƒ³ã‚’ä½¿ç”¨ã§ãã‚‹ã€æ¬¡ä¸–ä»£åž‹TTBaseã§ã™ã€‚
+TTBaseãƒ—ãƒ©ã‚°ã‚¤ãƒ³ã®ãƒ†ãƒ³ãƒ—ãƒ¬ãƒ¼ãƒˆã‚‚å…¬é–‹ã—ã¦ãŠã‚Šã€
+æœ¬ãƒ—ãƒ©ã‚°ã‚¤ãƒ³ã§ã‚‚ã€ãã®ãƒ†ãƒ³ãƒ—ãƒ¬ãƒ¼ãƒˆã‚’åˆ©ç”¨ã•ã›ã¦ã‚‚ã‚‰ã„ã¾ã—ãŸã€‚
 
-EEE‚Æ‚¢‚Â‚à‚ÍƒRƒR‚Ü‚Å‚È‚Ì‚Å‚·‚ªAmixer.cpp‚ÍŽ„‚ªì‚Á‚½‚à‚Ì‚¶‚á‚È‚¢‚Ì‚ÅA
-ã‹L“à—e‚É‚ ‚Ä‚Í‚Ü‚è‚Ü‚¹‚ñB•Ê“rmixer.cpp‚ðŒ©‚Ä‚­‚¾‚³‚¢‚ÈB
+ãã®ä»–ã€TTBaseã‚„ãã®äº’æ›ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã€ãƒ—ãƒ©ã‚°ã‚¤ãƒ³ã®é–‹ç™ºã«æºã‚ã£ãŸçš†æ§˜ã«ã€
+æ·±ã„æ•¬æ„ã¨æ„Ÿè¬ã‚’è¡¨ã—ã¾ã™ã€‚
 
-== ƒXƒyƒVƒƒƒ‹ƒTƒ“ƒNƒXB
-* ‚³‚Ü‚´‚Ü‚È‰Â”\«‚ð”é‚ß‚½TTBase‚ðŠJ”­‚µ‚½A((<K2|URL:http://web.kyoto-inet.or.jp/people/koyabu/>))‚³‚ÜB
-* ƒRƒA‚ÌƒvƒƒOƒ‰ƒ€‚ÌŽQl(EEE‚Á‚Â[‚©ƒpƒNƒŠ)‚É‚³‚¹‚Ä‚¢‚½‚¾‚¢‚½ATClock2ch‚Ì‰ü‘¢ŽÒAŸTDQ3TClock‚³‚ÜB
-* ŸTDQ3TClock_‚àŽQl‚É‚µ‚½A((<‘‹ƒvƒƒOƒ‰ƒ~ƒ“ƒO|URL:http://hp.vector.co.jp/authors/VA016117/>))‚³‚ñ‚¿B
-* Ž„‚ªƒvƒƒOƒ‰ƒ€‚ðì‚é‚½‚Ñ‚ÉAŒŸØE•Œ¾“™‚ð‚µ‚Ä‚­‚ê‚éOrator‚³‚ÜA“¡‘ãçq‚³‚ÜB
-* ‚»‚µ‚ÄA‚±‚Ìƒ\ƒtƒg‚ðŽg‚Á‚Ä‚­‚ê‚é‚Å‚ ‚ë‚¤‚Ý‚È‚Ý‚È‚³‚ÜB
+ã€ã„ã¾ã¾ã§ã®ã‚Œãã—ã€‘
+v1.0.0 (2016/06/12)
+* ã€Œãƒœãƒªãƒ¥ãƒ¼ãƒ ã‚’å¤‰æ›´ã€ãƒ—ãƒ©ã‚°ã‚¤ãƒ³ã®ã‚½ãƒ¼ã‚¹ç­‰ã‚’å‚è€ƒã«ä½œã£ã¦ã¿ã‚‹ã€‚
 
-‚Ý‚È‚³‚Ü‚Ì‹¦—Í‚ª‚È‚¯‚ê‚ÎA‚±‚Ìƒ\ƒtƒg‚Í‚È‚©‚Á‚½‚Ì‚Å‚·B
-‚Ù‚ñ‚Æ‚ÉA‚ ‚è‚ª‚Æ‚³‚Ü‚Å‚µ‚½m(_ _)m
-
-== ‚ê‚ñ‚ç‚­‚³‚«‚¾‚æ
-* ((<URL:mailto:info@momo-lab.net>))
-* ((<‚à‚à‚ç‚Ú‚Á!|URL:http://www.momo-lab.net>))
-
-== ‚¢‚Ü‚Ü‚Å‚Ì‚ê‚«‚µ
-=== Ver.1.12 (2003/02/08)
-* “Y•t‚·‚éiniƒtƒ@ƒCƒ‹‚ÍŠg’£Žq‚ð.sample‚Æ‚·‚é‚æ‚¤‚É‚µ‚½B
-* ReadMeƒtƒ@ƒCƒ‹(‚±‚Ìƒtƒ@ƒCƒ‹‚Ë)‚Ì–¼Ì‚ð•ÏX‚µ‚½B
-
-=== Ver.1.11 (2003/01/28)
-* ŽžŒv‚É‘—‚éƒƒbƒZ[ƒW‚ðATCLOCKM_REFRESHCLOCK‚©‚çTCLOCKM_VOLCHANGE‚É•ÏX‚µ‚½B
-* ã‹LC³‚É”º‚¢AƒŠƒtƒŒƒbƒVƒ…Žž‚Ì‚¿‚ç‚Â‚«‚ð—}‚¦‚ç‚ê‚é‚æ‚¤‚É‚È‚Á‚½ˆ×AIsRefreshClockƒIƒvƒVƒ‡ƒ“‚ð”pŽ~‚µ‚½B
-
-=== Ver.1.10 (2003/01/28)
-* tcredraw.exe‚ðŽQl‚É ƒ{ƒŠƒ…[ƒ€‚ð•ÏXŒãTClock‚ª“ü‚Á‚Ä‚¢‚ê‚ÎŽžŒv‚ðÄ•`‰æ‚·‚é‚æ‚¤‚É‚µ‚½B
-
-=== Ver.1.00 (2003/01/16)
-* TClock2ch‚Ìƒ\[ƒX“™‚ðŽQl‚Éì‚Á‚Ä‚Ý‚éB
-
-== ‚±‚ñ‚²‚Ì‚æ‚Ä[EEE‚Í‚Ý‚Ä[
-* ¡‚Ì‚Æ‚±‚ë‚È‚µB
-
-Copyright(c) 2000-2003 ‚à‚à‚½‚ë
+================================================================================
+Copyright (C) 2016 y80qqvht <https://github.com/y80qqvht>
