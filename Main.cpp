@@ -7,10 +7,13 @@
 #include <windows.h>
 #include <strsafe.h>
 #include <set>
+#include <cfenv>
+#include <cmath>
 
 #include "Plugin.hpp"
 #include "MessageDef.hpp"
 #include "Utility.hpp"
+#include "AudioEndpointVolume.hpp"
 
 #include "Main.hpp"
 
@@ -34,11 +37,8 @@ enum CMD : INT32
 {
     CMD_MUTE                = 1,
     CMD_VOLUME_UP_FIRST     = 1000,
-    CMD_VOLUME_UP_LAST      = 1100,
     CMD_VOLUME_DOWN_FIRST   = 2000,
-    CMD_VOLUME_DOWN_LAST    = 2100,
     CMD_VOLUME_SET_FIRST    = 3000,
-    CMD_VOLUME_SET_LAST     = 3100
 };
 
 //---------------------------------------------------------------------------//
@@ -84,6 +84,11 @@ void UnsetCommandData(PLUGIN_COMMAND_INFO *cmdInfo)
     cmdInfo->Caption = nullptr;
 }
 
+void WritePluginLog(ERROR_LEVEL logLevel, LPCTSTR message)
+{
+    WriteLog(logLevel, TEXT("%s: %s"), PLUGIN_NAME, message);
+}
+
 //---------------------------------------------------------------------------//
 
 // TTBEvent_InitPluginInfo() の内部実装
@@ -122,7 +127,7 @@ void WINAPI InitPluginInfo(void)
         if ( SUCCEEDED(::StringCchPrintf(key, 8, TEXT("Set%d"), i)) )
         {
             auto param = ::GetPrivateProfileInt(SECTION_COMMAND, key, 0, ininame);
-            if ( 0 <= param && param <= VOL_MAX )
+            if ( 0 < param && param <= VOL_MAX )
             {
                 set.insert(param);
             }
@@ -184,9 +189,71 @@ void WINAPI FreePluginInfo(void)
     g_info.Commands = nullptr;
 }
 
+//---------------------------------------------------------------------------//
+
+ChVol::AudioEndpointVolume audioEndpointVolume;
+
+HRESULT SetMasterVolumeLevel(INT32 nLevel)
+{
+    float fLevel = static_cast<float>(nLevel);
+    fLevel /= static_cast<float>(VOL_MAX);
+
+    if ( fLevel < 0.0F )
+    {
+        fLevel = 0.0F;
+    }
+    else if ( 1.0F < fLevel )
+    {
+        fLevel = 1.0F;
+    }
+
+    return audioEndpointVolume.SetMasterVolumeLevel(fLevel);
+}
+
+HRESULT AddMasterVolumeLevel(INT32 nLevelDiff)
+{
+    const auto roundType = fegetround();
+    if ( roundType != FE_TONEAREST )
+    {
+        fesetround(FE_TONEAREST);
+    }
+
+    float fLevel;
+    HRESULT hr = audioEndpointVolume.GetMasterVolumeLevel(&fLevel);
+    if ( FAILED(hr) ) { return hr; }
+
+    fLevel *= static_cast<float>(VOL_MAX);
+    INT32 nLevel = static_cast<INT32>(std::nearbyint(fLevel));
+    nLevel += nLevelDiff;
+
+    return SetMasterVolumeLevel(nLevel);
+}
+
+//---------------------------------------------------------------------------//
+
 // TTBEvent_Init() の内部実装
 BOOL WINAPI Init(void)
 {
+    HRESULT hr = audioEndpointVolume.Activate();
+    if ( FAILED(hr) )
+    {
+        WritePluginLog(elError, TEXT("Failed to activate AudioEndpointVolume"));
+        return FALSE;
+    }
+
+    BOOL bHardwareSupported;
+    hr = audioEndpointVolume.IsHardwareSupported(&bHardwareSupported);
+    if ( FAILED(hr) )
+    {
+        WritePluginLog(elError, TEXT("Failed to query hardware support"));
+        return FALSE;
+    }
+    if ( !bHardwareSupported )
+    {
+        WritePluginLog(elWarning, TEXT("Hardware volume controls are not supported"));
+    }
+
+    WritePluginLog(elInfo, TEXT("Init"));
     return TRUE;
 }
 
@@ -195,6 +262,8 @@ BOOL WINAPI Init(void)
 // TTBEvent_Unload() の内部実装
 void WINAPI Unload(void)
 {
+    audioEndpointVolume.Deactivate();
+    WritePluginLog(elInfo, TEXT("Unload"));
 }
 
 //---------------------------------------------------------------------------//
@@ -203,21 +272,64 @@ void WINAPI Unload(void)
 BOOL WINAPI Execute(INT32 CmdId, HWND hWnd)
 {
     UNREFERENCED_PARAMETER(hWnd); // ERASE ME
-    UNREFERENCED_PARAMETER(CmdId); // ERASE ME
-    return TRUE;
 
-    /*switch ( CmdId )
+    if ( CmdId == CMD_MUTE )
     {
-        case CMD_DUMMY:
+        if ( SUCCEEDED(audioEndpointVolume.ToggleMute()) )
         {
-            WriteLog(elDebug, TEXT("%s|%d"), g_info.Filename, CmdId);
+            WritePluginLog(elInfo, TEXT("Execute mute command"));
             return TRUE;
         }
-        default:
+        else
         {
+            WritePluginLog(elError, TEXT("Failed to execute mute command"));
             return FALSE;
         }
-    }*/
+    }
+    else if ( CMD_VOLUME_UP_FIRST <= CmdId && CmdId <= CMD_VOLUME_UP_FIRST + VOL_MAX )
+    {
+        if ( SUCCEEDED(AddMasterVolumeLevel(CmdId - CMD_VOLUME_UP_FIRST)) )
+        {
+            WritePluginLog(elInfo, TEXT("Execute up command"));
+            return TRUE;
+        }
+        else
+        {
+            WritePluginLog(elError, TEXT("Failed to execute up command"));
+            return FALSE;
+        }
+    }
+    else if ( CMD_VOLUME_DOWN_FIRST <= CmdId && CmdId <= CMD_VOLUME_DOWN_FIRST + VOL_MAX )
+    {
+        if ( SUCCEEDED(AddMasterVolumeLevel(CMD_VOLUME_DOWN_FIRST - CmdId)) )
+        {
+            WritePluginLog(elInfo, TEXT("Execute down command"));
+            return TRUE;
+        }
+        else
+        {
+            WritePluginLog(elError, TEXT("Failed to execute down command"));
+            return FALSE;
+        }
+    }
+    else if ( CMD_VOLUME_SET_FIRST <= CmdId && CmdId <= CMD_VOLUME_SET_FIRST + VOL_MAX )
+    {
+        if ( SUCCEEDED(SetMasterVolumeLevel(CmdId - CMD_VOLUME_SET_FIRST)) )
+        {
+            WritePluginLog(elInfo, TEXT("Execute set command"));
+            return TRUE;
+        }
+        else
+        {
+            WritePluginLog(elError, TEXT("Failed to execute set command"));
+            return FALSE;
+        }
+    }
+    else
+    {
+        WritePluginLog(elError, TEXT("Execute an unknown command"));
+        return FALSE;
+    }
 }
 
 //---------------------------------------------------------------------------//
